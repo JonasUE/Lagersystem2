@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Storage.Models.CategorySelection>
+
+@{
+    ViewBag.Title = "Pure shit";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div>
+    <h4>Category</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        @Html.BeginForm(){
+        <dt>Select Category</dt>
+        <dd>@Html.DropDownListFor(p => p.GetEnumerator(), p.ItemsInDropDown) </dd>
+        <dd><button type="submit">Submit</button></dd>
+        }
+
+    </dl>
+</div>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Category)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
